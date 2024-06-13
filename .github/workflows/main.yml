@@ -25,3 +25,12 @@ jobs:
 
     - name: Run tests
       run: mvn test
+
+    - name: Generate JaCoCo report
+      run: mvn jacoco:report
+
+    - name: Upload JaCoCo report
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-report
+        path: target/site/jacoco/index.html
